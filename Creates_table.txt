@@ -1,0 +1,50 @@
+CREATE TABLE PERMISO (
+	id_permiso VARCHAR(50) NOT NULL PRIMARY KEY,
+	productos VARCHAR(50) NOT NULL,
+	usuarios VARCHAR(50) NOT NULL,
+	tienda VARCHAR(50) NOT NULL,
+);
+
+CREATE TABLE USUARIO (
+	id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+	id_permiso VARCHAR(50) NOT NULL,
+	nombre VARCHAR(50) NOT NULL,
+	apellidos VARCHAR(50) NOT NULL,
+	password VARCHAR(50) NOT NULL,
+	correo VARCHAR(50),
+	telefono VARCHAR(9),
+	direccion VARCHAR(50) NOT NULL,
+	FOREIGN KEY (id_permiso) 
+        REFERENCES PERMISO(id_permiso),
+);
+
+CREATE TABLE FACTURA (
+	id_usuario INT NOT NULL,
+	id_factura INT AUTO_INCREMENT PRIMARY KEY,
+	fecha date NOT NULL,
+	precio INT NOT NULL,
+	observaciones VARCHAR(200),
+	FOREIGN KEY (id_usuario) 
+        REFERENCES USUARIO(id_usuario),
+);
+
+CREATE TABLE ENTRADA_FACTURA (
+	id_producto INT NOT NULL,
+	id_factura INT NOT NULL,
+	cantidad INT NOT NULL,
+	FOREIGN KEY (id_producto) 
+        REFERENCES PRODUCTO(id_producto),
+	FOREIGN KEY (id_factura) 
+        REFERENCES FACTURA(id_factura),
+);
+
+CREATE TABLE PRODUCTO (
+	id_producto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nombre VARCHAR(50) NOT NULL,
+	precio_unit INT NOT NULL,
+	foto VARCHAR(150),
+	stock INT,
+	categoria VARCHAR(50),
+	caracteristicas VARCHAR(200),
+);
+
