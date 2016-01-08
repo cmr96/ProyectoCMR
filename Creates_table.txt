@@ -18,9 +18,9 @@ CREATE TABLE USUARIO (
         REFERENCES PERMISO(id_permiso),
 );
 
-CREATE TABLE FACTURA (
+CREATE TABLE PEDIDO (
 	id_usuario INT NOT NULL,
-	id_factura INT AUTO_INCREMENT PRIMARY KEY,
+	id_pedido INT AUTO_INCREMENT PRIMARY KEY,
 	fecha date NOT NULL,
 	precio INT NOT NULL,
 	observaciones VARCHAR(200),
@@ -28,14 +28,14 @@ CREATE TABLE FACTURA (
         REFERENCES USUARIO(id_usuario),
 );
 
-CREATE TABLE ENTRADA_FACTURA (
+CREATE TABLE ENTRADA_PEDIDO (
 	id_producto INT NOT NULL,
 	id_factura INT NOT NULL,
 	cantidad INT NOT NULL,
 	FOREIGN KEY (id_producto) 
         REFERENCES PRODUCTO(id_producto),
-	FOREIGN KEY (id_factura) 
-        REFERENCES FACTURA(id_factura),
+	FOREIGN KEY (id_pedido) 
+        REFERENCES PEDIDO(id_pedido),
 );
 
 CREATE TABLE PRODUCTO (
