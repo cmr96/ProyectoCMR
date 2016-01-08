@@ -11,7 +11,7 @@ CREATE TABLE USUARIO (
 	nombre VARCHAR(50) NOT NULL,
 	apellidos VARCHAR(50) NOT NULL,
 	password VARCHAR(50) NOT NULL,
-	correo VARCHAR(50),
+	correo VARCHAR(50) UNIQUE NOT NULL,
 	telefono VARCHAR(9),
 	direccion VARCHAR(50) NOT NULL,
 	FOREIGN KEY (id_permiso) 
