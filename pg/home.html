@@ -1,32 +1,114 @@
 <html>
 <head>
-    <title></title>
+  <meta charset="utf-8">
+    <title>Hardbyte S.L</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="hardbytecss.css"/>
 </head>
 <body>
+
+  <!-- DIVS UL -->
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+
+      $('#dialog_link').click( function() {
+          $('#dialog').dialog();
+      });
+
+
+  $('#dialog_link2').click( function() {
+      $('#dialog2').dialog();
+  });
+});
+  </script>
+
+  <style>
+  #enviar {float:right;}
+  </style>
+
+  <div id="dialog2" title="Identificate" style="display:none">
+    <form action="" method="post" class="login">
+    <table border="0">
+      <tr>
+        <td>Nombre:  </td>
+        <td><input type="text" name="usu" maxlength="10" size="10" required></td>
+      </tr>
+      <tr>
+        <td>Apellidos:  </td>
+        <td><input type="text" name="usu" maxlength="30" size="10" required></td>
+      </tr>
+      <tr>
+        <td>E-mail:  </td>
+        <td><input type="text" name="usu" maxlength="10" size="10" required></td>
+      </tr>
+      <tr>
+        <tr>
+          <td>Direccion:  </td>
+          <td><input type="text" name="usu" maxlength="40" size="10" required></td>
+        </tr>
+        <tr>
+        <tr>
+            <td>Telefono:  </td>
+            <td><input type="text" name="usu" maxlength="9" size="10" required></td>
+          </tr>
+          <tr>
+        <td>Contraseña:  </td>
+        <td><input type="password" name="pass"  maxlength="10" size="10" required></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type=submit value="Crear" id="enviar"></td>
+      </tr>
+    </table>
+    </form>
+  </div>
+
+
+<div id="dialog" title="Identificate" style="display:none">
+  <form action="" method="post" class="login">
+  <table border="0">
+    <tr>
+      <td>E-mail:  </td>
+      <td><input type="text" name="usu" maxlength="10" size="10" required></td>
+    </tr>
+    <tr>
+      <td>Contraseña:  </td>
+      <td><input type="password" name="pass"  maxlength="10" size="10" required></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type=submit value="Entrar" id="enviar"></td>
+    </tr>
+  </table>
+  </form>
+</div>
+
+<!-- Fin DIVS UL -->
+
     <div id="encabezado">
-        <img id="fotouno" src="logo.jpg">
+        <img id="fotouno" src="img/logo.jpg">
         <div id="desp">
-            <p>TIENDA  |  PRODUCTOS  |  CLIENTES</p>
+            <p id="desp3"><p id="desp2">| TIENDA |</p><p id="desp2">| PRODUCTOS |</p><p id="desp2">| CLIENTES |</p></p>
         </div>
         <div id="ul">
             <ul>
-                <li>Conectarse</li>
-                <li>Crear Cuenta</li>
+                <li id="dialog_link">Conectarse</li>
+                <li id="dialog_link2">Crear Cuenta</li>
             </ul>
         </div>
     </div>
     <div id="medio">
         <p id="remem">Lideres del Sector</p>
-        <img id="fotodos" src="img1.jpg">
-        <img id="fotodos" src="img2.jpg">
-        <img id="fotodos" src="img3.jpg">
+        <img id="fotodos" src="img/img1.jpg">
+        <img id="fotodos" src="img/img2.jpg">
+        <img id="fotodos" src="img/img3.jpg">
         <div id="cap"><h2>Lo mejor en Componentes</h2>Elige las mejores piezas para tu PC en HardByte.</div>
         <div id="acc"><h2>Productos nuevos</h2>Cada dia hay productos nuevos, no te los pierdas</div>
         <div id="fin"><h2>Entrega ahora mas rapida</h2>Compra ahora rapido y mejor, con nuestro nuevo servicio de entrega a domicilio.</div>
      <div id="boton">
-         <img id="bot" src="boton.jpg">
-         <div id="get"><b>IR A LISTA DE PRODUCTOS</b></div>
+         <img id="bot" src="img/boton.jpg">
+         <div id="get"><b>IR A LA TIENDA</b></div>
 
     </div>
     </div>
@@ -34,8 +116,8 @@
     </div>
     <div id="final">
         <div id="f">
-          <p>Conocenos</p>
-          <p>Asistencia 24h</p>
+          <p><a href="segundarias/conocenos.html">Conocenos</a></p>
+          <p><a href="segundarias/asistencia.html">Asistencia 24h</a></p>
           <p>Creado por Carlos Martinez Romero</p>
         </div>
     </div>

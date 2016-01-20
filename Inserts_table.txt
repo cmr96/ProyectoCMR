@@ -1,0 +1,11 @@
+INSERT INTO `hardbyte`.`permiso`(`id_permiso`, `productos`, `usuarios`, `tienda`) VALUES ('user','0:0:0','0:0:0','1:0:0');
+INSERT INTO `hardbyte`.`permiso`(`id_permiso`, `productos`, `usuarios`, `tienda`) VALUES ('mod','1:1:0','0:0:0','1:0:0');
+INSERT INTO `hardbyte`.`permiso`(`id_permiso`, `productos`, `usuarios`, `tienda`) VALUES ('admin','1:1:1','1:1:1','1:1:1');
+
+INSERT INTO `hardbyte`.`usuario` (`id_usuario`, `id_permiso`, `nombre`, `apellidos`, `password`, `correo`, `telefono`, `direccion`) VALUES (NULL, 'user', 'Matilde', 'Romero Zarco', MD5('1234'), 'prueba1@hotmail.com', '111111111', 'C/San Vicente de Paul');
+INSERT INTO `hardbyte`.`usuario` (`id_usuario`, `id_permiso`, `nombre`, `apellidos`, `password`, `correo`, `telefono`, `direccion`) VALUES (NULL, 'mod', 'Luis Daniel', 'Martinez Abreu', MD5('1234'), 'prueba2@hotmail.com', '222222222', 'C/Luis Mensaque');
+INSERT INTO `hardbyte`.`usuario` (`id_usuario`, `id_permiso`, `nombre`, `apellidos`, `password`, `correo`, `telefono`, `direccion`) VALUES (NULL, 'admin', 'Carlos', 'Martinez Romero', MD5('cmr333'), 'carlos1m2r3@hotmail.com', '333333333', 'C/Lopez de gomara');
+
+INSERT INTO `hardbyte`.`producto` (`id_producto`, `nombre`, `precio_unit`, `foto`, `stock`, `categoria`, `caracteristicas`) VALUES (NULL, 'Sharkoon Shark Zone K30', '28.95', 'pro1.jpg', '5', 'teclado', 'teclado con una relación calidad-precio muy atractiva. El diseño del Shark Zone negro y amarillo mejora sus habilidades de juego y envía una advertencia visual a sus rivales de juego.');
+INSERT INTO `hardbyte`.`producto` (`id_producto`, `nombre`, `precio_unit`, `foto`, `stock`, `categoria`, `caracteristicas`) VALUES (NULL, 'Tacens Mars Gaming Altavoces MS1', '14.95', 'pro2.jpg', '3', 'altavoces', 'Los MS1 son los primeros altavoces de la gama Mars Gaming pensados por y para gamers. La gran potencia RMS de 10W que ofrecen te permitirán una inmersión total en el juego.');
+INSERT INTO `hardbyte`.`producto` (`id_producto`, `nombre`, `precio_unit`, `foto`, `stock`, `categoria`, `caracteristicas`) VALUES (NULL, 'Gigabyte GeForce GTX 960 OC WindForce 4GB DDR5', '223', 'pro3.jpg', '22', 'targeta grafica', 'Te presentamos la Gigabyte GeForce GTX 960, una gráfica en su version OC con 4GB de memoria, que elevará la potencia de tu PC a la de un autético Gamer.');
