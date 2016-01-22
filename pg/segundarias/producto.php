@@ -25,20 +25,20 @@
 
           <!-- PRINT THE TABLE AND THE HEADER -->
           <table border=1>
-          <thead>
-            <tr>
-              <th>id_producto</th>
-              <th>Nombre</th>
-              <th>Precio_unit</th>
-              <th>Foto</th>
-              <th>Stock</th>
-              <th>Categoria</th>
-              <th>Caracteristicas</th>
-              <th>Editar</th>
-              <th>Borrar</th>
-          </thead>
+            <thead>
+              <tr>
+                <th>id_producto</th>
+                <th>Nombre</th>
+                <th>Precio_unit</th>
+                <th>Foto</th>
+                <th>Stock</th>
+                <th>Categoria</th>
+                <th>Caracteristicas</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </thead>
 
-          <a href="crear.php"><button> Crear Reparacion </button>
+          <a href="crear.php"><button> Crear Producto </button></br></br>
 
       <?php
 
@@ -53,9 +53,9 @@
               echo "<td>".$obj->foto."</td>";
               echo "<td>".$obj->stock."</td>";
               echo "<td>".$obj->categoria."</td>";
-              echo "<td>".$obj->Caracteristicas."</td>";
-              echo "<td><a href='editar.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='../img/sec1.jpg'></a></td>";
-              echo "<td><a href='borrar.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='../img/sec4.jpg'></a></td>";
+              echo "<td>".$obj->caracteristicas."</td>";
+              echo "<td><a href='editar.php?id=$obj->id_producto'><img style='height: 25px;width: 25px;' src='img/sec2.jpg'></a></td>";
+              echo "<td><a href='borrar.php?id=$obj->id_producto'><img style='height: 25px;width: 25px;' src='img/sec1.png'></a></td>";
               echo "</tr>";
           }
 

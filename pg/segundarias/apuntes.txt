@@ -1,0 +1,6 @@
+java boton -> tienda
+php crear modificar borrar -> producto/usuario
+php carrito
+php permisos
+php login
+

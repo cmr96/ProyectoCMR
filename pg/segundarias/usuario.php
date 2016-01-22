@@ -19,7 +19,7 @@
 
       if ($result = $connection->query("SELECT * FROM usuario;")) {
 
-          printf("<h1>Clientes de HardByte</h1>");
+          printf("<h1>Usuarios de HardByte</h1>");
 
       ?>
 
@@ -39,7 +39,7 @@
               <th>Borrar</th>
           </thead>
 
-          <a href="crear.php"><button> Crear Reparacion </button>
+          <a href="crear.php"><button> Crear Usuario </button></br></br>
 
       <?php
 
@@ -56,8 +56,8 @@
               echo "<td>".$obj->correo."</td>";
               echo "<td>".$obj->telefono."</td>";
               echo "<td>".$obj->direccion."</td>";
-              echo "<td><a href='editar.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='../img/sec1.jpg'></a></td>";
-              echo "<td><a href='borrar.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='../img/sec4.jpg'></a></td>";
+              echo "<td><a href='editar.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='img/sec2.jpg'></a></td>";
+              echo "<td><a href='borrar.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='img/sec1.png'></a></td>";
               echo "</tr>";
           }
 

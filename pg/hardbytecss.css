@@ -1,7 +1,10 @@
 a { color: white; }
+#desp2 a {
+  color:#0C5484;
+}
 #encabezado {
     width: 1296px;
-    height: 60px;
+    height: 62px;
     position: relative;
     border: 2px solid #0C5484
 }
@@ -35,11 +38,12 @@ a { color: white; }
 
 #remem {
     color: white;
-    font-size: 35px;
-    margin: 0 auto 5 525;
+    font-size: 40px;
+    margin: 0 auto 5 500;
     padding-top:  25px;
     width: 400px;
     height: 50px;
+    font-family: 'Lobster', cursive;
 }
 #cap {
     color: white;
@@ -84,24 +88,24 @@ a { color: white; }
     border: 3px solid #43779A
 }
 #f {
-    margin: auto 0 auto 20;
+    margin: 20 0 auto 20;
     color: white;
     font-size: 15px;
 }
 
 #bot {
-    margin-left: 25px;
+    margin-left: 10px;
     width: 40px;
     margin-top: 10px;
     float: left
 }
 #get {
-    font-size: 14px;
+    font-size: 20px;
     display: inline;
-    margin-top: 17px;
+    margin-top: 12px;
     float: left;
-    font-family: "Arial";
-    margin-left: 12px;
+    font-family: 'Indie Flower', cursive;
+    margin-left: 10px;
     color: #0C5484
 }
 #ul {
