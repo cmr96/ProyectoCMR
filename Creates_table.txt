@@ -14,7 +14,7 @@ CREATE TABLE USUARIO (
 	correo VARCHAR(50) UNIQUE NOT NULL,
 	telefono VARCHAR(9),
 	direccion VARCHAR(50) NOT NULL,
-	FOREIGN KEY (id_permiso) 
+	FOREIGN KEY (id_permiso)
         REFERENCES PERMISO(id_permiso)
 );
 
@@ -24,7 +24,7 @@ CREATE TABLE PEDIDO (
 	fecha date NOT NULL,
 	precio INT NOT NULL,
 	observaciones VARCHAR(200),
-	FOREIGN KEY (id_usuario) 
+	FOREIGN KEY (id_usuario)
         REFERENCES USUARIO(id_usuario)
 );
 
@@ -40,9 +40,9 @@ CREATE TABLE PRODUCTO (
 
 CREATE TABLE ENTRADA_PEDIDO (
 	id_producto INT NOT NULL,
-    id_pedido INT NOT NULL,
+  id_pedido INT NOT NULL,
 	cantidad INT NOT NULL,
-	FOREIGN KEY (id_producto) 
+	FOREIGN KEY (id_producto)
         REFERENCES PRODUCTO(id_producto),
 	FOREIGN KEY (id_pedido)
         REFERENCES PEDIDO(id_pedido)

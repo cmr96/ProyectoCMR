@@ -1,14 +1,8 @@
-<html>
-<head>
-  <meta charset="utf-8">
-    <title>Hardbyte S.L</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
     <link rel="stylesheet" type="text/css" href="../hardbytecss.css"/>
-    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-</head>
-<body>
+
+
 
 <style>
 #titu {
@@ -25,7 +19,7 @@
   overflow: auto;
   width: 450px;
   height: 480px;
-  background-color: #6A1515;
+  background-color: #FFFFFF;
   border: 2px solid black;
   float: left;
   display: inline;
@@ -37,10 +31,8 @@
   background-color: white;
   margin-left: 50px;
   margin-top: 10px;
-  border-radius: 15px;
   float: left;
   display: inline;
-  border: 3px solid #000000;
 }
 #pro6 {
   width: 90px;
@@ -66,10 +58,8 @@
   background-color: white;
   margin-top: 15px;
   margin-left: 25px;
-  border-radius: 10px;
   float: left;
   display: inline;
-  border: 3px solid #000000;
   height: auto;
   overflow: auto;
 }
@@ -118,106 +108,6 @@
 }
 </style>
 
-  <!-- Inicio DIVS -->
-
-  <script type="text/javascript">
-  $(document).ready(function() {
-
-      $('#dialog_link').click( function() {
-          $('#dialog').dialog();
-      });
-
-
-  $('#dialog_link2').click( function() {
-      $('#dialog2').dialog();
-  });
-});
-  </script>
-
-  <style>
-  #enviar {float:right;}
-  </style>
-
-  <div id="dialog2" title="Identificate" style="display:none">
-    <form action="" method="post" class="login">
-    <table border="0">
-      <tr>
-        <td>Nombre:  </td>
-        <td><input type="text" name="usu" maxlength="10" size="10" required></td>
-      </tr>
-      <tr>
-        <td>Apellidos:  </td>
-        <td><input type="text" name="usu" maxlength="30" size="10" required></td>
-      </tr>
-      <tr>
-        <td>E-mail:  </td>
-        <td><input type="text" name="usu" maxlength="10" size="10" required></td>
-      </tr>
-      <tr>
-        <tr>
-          <td>Direccion:  </td>
-          <td><input type="text" name="usu" maxlength="40" size="10" required></td>
-        </tr>
-        <tr>
-        <tr>
-            <td>Telefono:  </td>
-            <td><input type="text" name="usu" maxlength="9" size="10" required></td>
-          </tr>
-          <tr>
-        <td>Contraseña:  </td>
-        <td><input type="password" name="pass"  maxlength="10" size="10" required></td>
-      </tr>
-      <tr>
-        <td colspan="2"><input type=submit value="Crear" id="enviar"></td>
-      </tr>
-    </table>
-    </form>
-  </div>
-
-
-<div id="dialog" title="Identificate" style="display:none">
-  <form action="" method="post" class="login">
-  <table border="0">
-    <tr>
-      <td>E-mail:  </td>
-      <td><input type="text" name="usu" maxlength="10" size="10" required></td>
-    </tr>
-    <tr>
-      <td>Contraseña:  </td>
-      <td><input type="password" name="pass"  maxlength="10" size="10" required></td>
-    </tr>
-    <tr>
-      <td colspan="2"><input type=submit value="Entrar" id="enviar"></td>
-    </tr>
-  </table>
-  </form>
-</div>
-
-<!-- Fin DIVS -->
-
-    <div id="encabezado">
-        <img id="fotouno" src="img/logo.jpg">
-        <div id="desp">
-            <div id="desp3">
-                  <p id="desp2">
-                <a href="../home.html"> --INICIO-- </a>
-                  </p>
-                  <p id="desp2">
-                    <a href="producto.php"> --PRODUCTOS-- </a>
-                  </p>
-                      <p id="desp2">
-                  <a href="usuario.php"> --USUARIOS-- </a>
-                  </p>
-              </div>
-        </div>
-        <div id="ul">
-            <ul>
-                <li id="dialog_link">Conectarse</li>
-                <li id="dialog_link2">Crear Cuenta</li>
-            </ul>
-        </div>
-    </div>
-    <div id="medio">
 
       <?php
 
@@ -277,16 +167,3 @@
         } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 
       ?>
-
-
-    </div>
-
-    <div id="final">
-        <div id="f">
-          <p><a href="segundarias/conocenos.html">Conocenos</a></p>
-          <p><a href="segundarias/asistencia.html">Asistencia 24h</a></p>
-          <p>Creado por Carlos Martinez Romero</p>
-        </div>
-    </div>
-</body>
-</html>

@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-  </head>
-  <body>
+<style>
+#medio td {
+  color: #FFFFFF;
+  padding-left: 20px;
+  padding-top: 5px;
+}
+#medio h1 {
+  color: #FFFFFF;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+#medio {
+  margin-top: -22px;
+}
+#1234 {
+  margin-left: 20px;
+}
+</style>
+
     <?php
 
       $connection = new mysqli("localhost", "root", "1234", "hardbyte");
@@ -24,7 +35,7 @@
       ?>
 
           <!-- PRINT THE TABLE AND THE HEADER -->
-          <table border=1>
+          <table class="table">
           <thead>
             <tr>
               <th>id_usuario</th>
@@ -39,7 +50,7 @@
               <th>Borrar</th>
           </thead>
 
-          <a href="crear.php"><button> Crear Usuario </button></br></br>
+          <a href="crearusuario.php"><button id="1234"> Crear Usuario </button></br></br>
 
       <?php
 
@@ -56,8 +67,8 @@
               echo "<td>".$obj->correo."</td>";
               echo "<td>".$obj->telefono."</td>";
               echo "<td>".$obj->direccion."</td>";
-              echo "<td><a href='editar.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='img/sec2.jpg'></a></td>";
-              echo "<td><a href='borrar.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='img/sec1.png'></a></td>";
+              echo "<td><a href='editarusuario.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='img/sec2.jpg'></a></td>";
+              echo "<td><a href='borrarusuario.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='img/sec1.png'></a></td>";
               echo "</tr>";
           }
 
@@ -69,5 +80,3 @@
       } //END OF THE IF CHECKING IF THE QUERY WAS RIGHT
 
     ?>
-  </body>
-</html>

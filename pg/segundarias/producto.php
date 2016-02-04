@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <title></title>
   </head>
   <body>
@@ -24,7 +27,7 @@
       ?>
 
           <!-- PRINT THE TABLE AND THE HEADER -->
-          <table border=1>
+          <table class="table">
             <thead>
               <tr>
                 <th>id_producto</th>
@@ -54,7 +57,7 @@
               echo "<td>".$obj->stock."</td>";
               echo "<td>".$obj->categoria."</td>";
               echo "<td>".$obj->caracteristicas."</td>";
-              echo "<td><a href='editar.php?id=$obj->id_producto'><img style='height: 25px;width: 25px;' src='img/sec2.jpg'></a></td>";
+              echo "<td><a href='editarproducto.php?id=$obj->id_producto'><img style='height: 25px;width: 25px;' src='img/sec2.jpg'></a></td>";
               echo "<td><a href='borrar.php?id=$obj->id_producto'><img style='height: 25px;width: 25px;' src='img/sec1.png'></a></td>";
               echo "</tr>";
           }

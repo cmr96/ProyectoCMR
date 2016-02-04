@@ -1,4 +1,6 @@
-a { color: white; }
+a {
+  color: white;
+}
 #desp2 a {
   color:#0C5484;
 }
@@ -100,13 +102,16 @@ a { color: white; }
     float: left
 }
 #get {
-    font-size: 20px;
+    font-size: 18px;
     display: inline;
-    margin-top: 12px;
+    margin-top: -5px;
     float: left;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Righteous', cursive;
     margin-left: 10px;
-    color: #0C5484
+    color: #0C5484;
+}
+#get p a {
+    color: #0C5484;
 }
 #ul {
     float: right;
@@ -122,11 +127,36 @@ a { color: white; }
     float: left;
     color: #0C5484;
     font-size: 16px;
-    border: 3px solid #0C5484;
+    margin-top: -17px;
+    font-family: 'Candal', sans-serif;
+    height: 62px;
+    border: 2px solid #0C5484;
+    width: 120px;
+    text-align: center;
+}
+
+
+.hide1 {
+    display: inline;
+    float: left;
+    color: #0C5484;
+    font-size: 16px;
     margin-top: 0px;
+    font-family: 'Candal', sans-serif;
+    visibility: visible;
+}
+.hide2 {
+    display: inline;
+    float: left;
+    color: #0C5484;
+    font-size: 16px;
+    margin-top: 0px;
+    font-family: 'Candal', sans-serif;
+    visibility: visible;
 }
 
 #desp3 {
     display: inline;
     float: left;
+    margin-left: 40px;
 }

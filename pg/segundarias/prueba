@@ -1,0 +1,15 @@
+volver:
+
+<a href="../home.html"><button>Volver</button></a>
+
+
+
+
+
+      <?php
+      $connection = new mysqli("localhost", "root", "1234", "hardbyte");
+      $link=$_GET["id_usuario"];
+      $delete1="DELETE FROM usuario WHERE id_usuario='$link'";
+      $connection->query( $delete1 );
+      header("refresh:0; url=usuario.php");
+      ?>
