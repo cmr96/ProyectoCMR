@@ -13,12 +13,12 @@
 }
 #pro1 {
   padding-top: 1px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 30px;
+  margin-top: 7.5px;
+  margin-bottom: 7.5px;
+  margin-left: 15px;
   overflow: auto;
-  width: 1000px;
-  height: 180px;
+  width: 130px;
+  height: 170px;
   background-color: #FFFFFF;
   border: 2px solid black;
   float: left;
@@ -26,61 +26,54 @@
   border-radius: 4px;
 }
 #pro2 {
-  width: 160px;
-  height: 160px;
+  width: 80px;
+  height: 80px;
   background-color: white;
-  margin-left: 30px;
-  margin-top: 10px;
+  margin-left: 25px;
+  margin-top: 5px;
   float: left;
   display: inline;
 }
 #pro2 img {
-  width: 160px;
-  height: 160px;
+  width: 80px;
+  height: 80px;
   border-radius: 7.5px;
 }
 #pro3 {
-  width: 700px;
+  width: 115px;
   background-color: white;
-  margin: 10 auto auto 70;
+  margin: 7.5 auto auto 7.5;
   float: left;
   display: inline;
-  height: 30px;
+  height: auto;
+  overflow: auto;
 }
 #pro3 h2 {
+  margin-top: 2.5px;
+  margin-left: 2.5px;
+  text-align: center;
 }
 #pro3 h2 a {
   color: black;
-  font-size: 20px;
+  text-decoration: none;
+  font-size: 10px;
   text-align: center;
-  margin: 0 0 0 0;
 }
 #pro4 {
-  width: 80px;
-  height: 40px;
-  color: #B12704;
-  margin: 70 auto auto 260;
+  width: 40px;
+  height: 13px;
+  color: black;
+  margin: 147 auto auto auto;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background-color: #0C5484;
   display: block;
+  text-align: center;
 }
-#pro5 {
-  width: 221px;
-  height: 75px;
-  background-color: white;
-  margin-left: 680px;
-  margin-top: -100px;
-  float: left;
-  display: inline;
-}
-#pro5 img {
-  width: 221px;
-  height: 75px;
-}
-#pro7 {
-  width: 80px;
-  height: 30px;
-  color: #008a00;
-  margin: -30 auto auto 260;
-  display: block;
+#pro4 h2{
+  margin-left: 2.5px;
+  margin-top: 0px;
+  font-size: 10px;
 }
 #medio {
   overflow: auto;
@@ -126,19 +119,12 @@
                 echo "</div>";
 
                 echo "<div id='pro3'>";
-                echo "<h2><a href='descripcion.php?id_producto=$obj->id_producto'>$obj->nombre</a></h2>";
+                echo "<h2><a href='pedido.php'>$obj->nombre</a></h2>";
                 echo "</div>";
 
                 echo "<div id='pro4'>";
-                echo "<p>EUR $obj->precio_unit</p>";
-                echo "</div>";
-
-                echo "<div id='pro7'>";
-                echo "<p>STOCK $obj->stock</p>";
-                echo "</div>";
-
-                echo "<div id='pro5'>";
-                echo "<img src='img/addcar.jpg'>";
+                echo "<h2>";
+                echo "$obj->precio_unit €</h2>";
                 echo "</div>";
 
                 echo "</div>";

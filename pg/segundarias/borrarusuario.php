@@ -16,7 +16,7 @@ $delete1="DELETE FROM usuario WHERE id_usuario='$link'";
 
 $connection->query( $delete1 );
 
-header("refresh:5; url=usuario.php");
+header("refresh:0; url=usuario.php");
 ?>
 
 

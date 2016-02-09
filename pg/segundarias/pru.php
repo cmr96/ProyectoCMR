@@ -13,74 +13,95 @@
 }
 #pro1 {
   padding-top: 1px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 100px;
   overflow: auto;
-  width: 1000px;
-  height: 180px;
+  width: 450px;
+  height: 480px;
   background-color: #FFFFFF;
   border: 2px solid black;
   float: left;
   display: inline;
-  border-radius: 4px;
+  border-radius: 25px;
 }
 #pro2 {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   background-color: white;
-  margin-left: 30px;
+  margin-left: 50px;
   margin-top: 10px;
   float: left;
   display: inline;
 }
+#pro6 {
+  width: 90px;
+  height: 90px;
+  background-color: white;
+  border-radius: 50px;
+  border: 3px solid #000000;
+  margin-left: 310px;
+  margin-top: 80px;
+}
 #pro2 img {
-  width: 160px;
-  height: 160px;
-  border-radius: 7.5px;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+}
+#pro6 img {
+  width: 90px;
+  height: 90px;
+  border-radius: 15px;
 }
 #pro3 {
-  width: 700px;
+  width: 250px;
   background-color: white;
-  margin: 10 auto auto 70;
+  margin-top: 15px;
+  margin-left: 25px;
   float: left;
   display: inline;
-  height: 30px;
+  height: auto;
+  overflow: auto;
 }
 #pro3 h2 {
+  margin-top: 5px;
+  margin-left: 5px;
 }
 #pro3 h2 a {
   color: black;
-  font-size: 20px;
-  text-align: center;
-  margin: 0 0 0 0;
+  text-decoration: none;
+}
+#pro3 p {
+  margin-top: 0px;
+  margin-left: 5px;
 }
 #pro4 {
-  width: 80px;
+  width: 100px;
   height: 40px;
-  color: #B12704;
-  margin: 70 auto auto 260;
-  display: block;
+  background-color: white;
+  margin-top: 80px;
+  margin-left: 320px;
+  border-radius: 10px;
+  border: 3px solid #000000;
+  background-color: #2F73B2;
+}
+#pro4 h2{
+  margin-top: 7px;
+  margin-left: 7px;
 }
 #pro5 {
-  width: 221px;
-  height: 75px;
-  background-color: white;
-  margin-left: 680px;
-  margin-top: -100px;
-  float: left;
-  display: inline;
-}
-#pro5 img {
-  width: 221px;
-  height: 75px;
-}
-#pro7 {
   width: 80px;
-  height: 30px;
-  color: #008a00;
-  margin: -30 auto auto 260;
-  display: block;
+  height: 80px;
+  background-color: white;
+  margin-top: 30px;
+  margin-left: 320px;
+  border-radius: 10px;
+  border: 3px solid #000000;
+  background-color: #E14040;
+}
+#pro5 h2{
+  margin-top: 10px;
+  margin-left: 5px;
 }
 #medio {
   overflow: auto;
@@ -120,27 +141,25 @@
                 //PRINTING EACH ROW
 
                 echo "<div id='pro1'>";
-
                 echo "<div id='pro2'>";
                 echo "<img src='img/$obj->foto.'>";
                 echo "</div>";
-
+                echo "<div id='pro6'>";
+                echo "<img src='img/carrito.png.'>";
+                echo "</div>";
                 echo "<div id='pro3'>";
-                echo "<h2><a href='descripcion.php?id_producto=$obj->id_producto'>$obj->nombre</a></h2>";
+                echo "<h2><a href='pedido.php'>$obj->nombre</a></h2>";
+                echo "<p><b>$obj->caracteristicas</b></p>";
                 echo "</div>";
-
                 echo "<div id='pro4'>";
-                echo "<p>EUR $obj->precio_unit</p>";
+                echo "<h2>Hay ";
+                echo "$obj->stock</h2>";
                 echo "</div>";
-
-                echo "<div id='pro7'>";
-                echo "<p>STOCK $obj->stock</p>";
-                echo "</div>";
-
                 echo "<div id='pro5'>";
-                echo "<img src='img/addcar.jpg'>";
+                echo "<h2>Precio:";
+                echo "</br>";
+                echo "$obj->precio_unit €</h2>";
                 echo "</div>";
-
                 echo "</div>";
             }
 

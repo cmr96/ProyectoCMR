@@ -1,3 +1,9 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 <style>
 #medio td {
   color: #FFFFFF;
@@ -12,7 +18,7 @@
 #medio {
   margin-top: -22px;
 }
-#1234 {
+#crear {
   margin-left: 20px;
 }
 </style>
@@ -50,7 +56,7 @@
               <th>Borrar</th>
           </thead>
 
-          <a href="crearusuario.php"><button id="1234"> Crear Usuario </button></br></br>
+          <a href="crearusuario.php"><button id="crear"> Crear Usuario </button></br></br>
 
       <?php
 
@@ -67,8 +73,8 @@
               echo "<td>".$obj->correo."</td>";
               echo "<td>".$obj->telefono."</td>";
               echo "<td>".$obj->direccion."</td>";
-              echo "<td><a href='editarusuario.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='img/sec2.jpg'></a></td>";
-              echo "<td><a href='borrarusuario.php?id=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='img/sec1.png'></a></td>";
+              echo "<td><a href='editarusuario.php?id_usuario=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='img/sec2.jpg'></a></td>";
+              echo "<td><a href='borrarusuario.php?id_usuario=$obj->id_usuario'><img style='height: 25px;width: 25px;' src='img/sec1.png'></a></td>";
               echo "</tr>";
           }
 
