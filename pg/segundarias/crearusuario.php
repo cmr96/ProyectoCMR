@@ -1,5 +1,9 @@
 
-    <link rel="stylesheet" type="text/css" href="../hardbytecss.css"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
 <style>
@@ -32,13 +36,14 @@
       }
 
         ?>
-
-
+        <?php
+        echo "<div class='container-page'>";
+        echo "<div class='col-md-6'>";
+        ?>
       <form action="" method="post" class="id_usuario">
-        <table border="0">
-          <tr>
-            <td>id_usuario:  </td>
-            <td>
+          <div class='form-group col-lg-6'>
+            id_usuario:
+
 
               <?php
                // elegir usuario:
@@ -46,47 +51,50 @@
                while ($fila=$result->fetch_object()) {
                $res=$fila->id;
                $res=$res+1;
-               echo "<input type=text name='id_usuario' value=$res>";
+               echo "<input class='form-control' type=text name='id_usuario' value=$res>";
                 }
                ?>
 
-            </td>
-          </tr>
 
-              <tr>
-                <td>id_permiso:  </td>
-                <td>
-                  <input type=text name='id_permiso' placeholder='user, mod o admin' required>
-                </td>
-              </tr>
-              <tr>
-                <td>Nombre:  </td>
-                <td><input type=text name='nombre' required></td>
-              </tr>
-              <tr>
-                <td>Apellidos:  </td>
-                <td><input type=text name='apellidos' required></td>
-              </tr>
-              <tr>
-                <td>Password:  </td>
-                <td><input type=text name='password' required></td>
-              </tr>
-              <tr>
-                <td>Correo:  </td>
-                <td><input type=text name='correo' required></td>
-              </tr>
-              <tr>
-                <td>Telefono:  </td>
-                <td><input type=text name='telefono'></td>
-              </tr>
-              <tr>
-              <td>Direccion:  </td>
-              <td><input type=text name='direccion'required></td>
-              </tr>
-              <tr>
-                <td colspan="2"><input type=submit value="Entrar" id="enviar"></td>
-              </tr>
-              </table>
+          </div>
+
+              <div class='form-group col-lg-6'>
+                id_permiso:
+
+                  <input class='form-control' type=text name='id_permiso' placeholder='user, mod o admin' required>
+
+              </div>
+              <div class='form-group col-lg-6'>
+                Nombre:
+                <input class='form-control' type=text name='nombre' required>
+              </div>
+              <div class='form-group col-lg-6'>
+                Apellidos:
+                <input class='form-control' type=text name='apellidos' required>
+              </div>
+              <div class='form-group col-lg-6'>
+                Password:
+                <input class='form-control' type=text name='password' required>
+              </div>
+              <div class='form-group col-lg-6'>
+                Correo:
+                <input class='form-control' type=email name='correo' required>
+              </div>
+              <div class='form-group col-lg-6'>
+                Telefono:
+                <input class='form-control' type=text name='telefono'>
+              </div>
+              <div class='form-group col-lg-6'>
+              Direccion:
+              <input class='form-control' type=text name='direccion'required>
+              </div>
+              <?php
+              echo "<div class='form-group col-lg-6'><input class='ev' type='hidden'></div>";
+              echo "<div class='form-group col-lg-6'><input class='ev' type='hidden'></div>";
+              ?>
+              <div class='form-group col-lg-6'>
+              <input class='form-control' type=submit value="Crear" id="enviar">
+              </div>
             </form>
 
 

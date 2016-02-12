@@ -41,7 +41,7 @@
                 <th>Borrar</th>
             </thead>
 
-          <a href="crear.php"><button> Crear Producto </button></br></br>
+          <a href="crearproducto.php"><button> Crear Producto </button></br></br>
 
       <?php
 
@@ -57,8 +57,8 @@
               echo "<td>".$obj->stock."</td>";
               echo "<td>".$obj->categoria."</td>";
               echo "<td>".$obj->caracteristicas."</td>";
-              echo "<td><a href='editarproducto.php?id=$obj->id_producto'><img style='height: 25px;width: 25px;' src='img/sec2.jpg'></a></td>";
-              echo "<td><a href='borrar.php?id=$obj->id_producto'><img style='height: 25px;width: 25px;' src='img/sec1.png'></a></td>";
+              echo "<td><a href='editarproducto.php?id_producto=$obj->id_producto'><img style='height: 25px;width: 25px;' src='img/sec2.jpg'></a></td>";
+              echo "<td><a href='borrarproducto.php?id_producto=$obj->id_producto'><img style='height: 25px;width: 25px;' src='img/sec1.png'></a></td>";
               echo "</tr>";
           }
 
