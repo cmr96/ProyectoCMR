@@ -16,7 +16,7 @@
 
     <?php
       //CREATING THE CONNECTION
-      if (isset($_GET['id_usuario'])) {
+      if (isset($_GET['id_producto'])) {
       $connection = new mysqli("localhost", "root", "1234", "hardbyte");
         //TESTING IF THE CONNECTION WAS RIGHT
 
@@ -27,7 +27,7 @@
 
             //MAKING A SELECT QUERY
             /* Consultas de selección que devuelven un conjunto de resultados */
-            if ($result = $connection->query("SELECT * FROM usuario WHERE id_usuario=".$_GET['id_usuario'])) {
+            if ($result = $connection->query("SELECT * FROM producto WHERE id_producto=".$_GET['id_producto'])) {
 
                 //FETCHING OBJECTS FROM THE RESULT SET
                 //THE LOOP CONTINUES WHILE WE HAVE ANY OBJECT (Query Row) LEFT
@@ -35,17 +35,16 @@
                     //PRINTING EACH ROW
                     echo "<div class='container-page'>";
                     echo "<div class='col-md-6'>";
-                    echo "<form action='editarusuario.php' method='post'>";
-                    echo "<div id='nor' class='form-group col-lg-6'><b>id_usuario: </b>".$obj->id_usuario."</div></br></br>";
+                    echo "<form action='editarproducto.php' method='post'>";
+                    echo "<div id='nor' class='form-group col-lg-6'><b>id_producto: </b>".$obj->id_producto."</div></br></br>";
                     echo "<div class='form-group col-lg-6'><input class='ev' type='hidden'></div>";
-                    echo "<div class='form-group col-lg-6'>Permiso: <input class='form-control' type='text' name='dos' required value='".$obj->id_permiso."'></div>";
-                    echo "<div class='form-group col-lg-6'>Nombre: <input class='form-control' type='text' name='tres' required value='".$obj->nombre."'></div>";
-                    echo "<div class='form-group col-lg-6'>Apellidos: <input class='form-control' type='text' name='cuatro' required value='".$obj->apellidos."'></div>";
-                    echo "<div class='form-group col-lg-6'>Correo: <input class='form-control' type='email' name='seis' required value='".$obj->correo."'></div>";
-                    echo "<div class='form-group col-lg-6'>Telefono: <input class='form-control' type='number' name='siete' value='".$obj->telefono."'></div>";
-                    echo "<div class='form-group col-lg-6'>Direccion: </td><td><input class='form-control' type='text' name='ocho' required value='".$obj->direccion."'></div>";
-                    echo "<div class='form-group col-lg-6'><input class='form-control' type='hidden' name='uno' required value='".$obj->id_usuario."'></div>";
-                    echo "<div class='form-group col-lg-6'><input class='ev' type='hidden'></div>";
+                    echo "<div class='form-group col-lg-6'>Nombre: <input class='form-control' type='text' name='dos' required value='".$obj->nombre."'></div>";
+                    echo "<div class='form-group col-lg-6'>Precio_unit: <input class='form-control' type='number' name='tres' required value='".$obj->precio_unit."'></div>";
+                    echo "<div class='form-group col-lg-6'>Foto: <input class='form-control' type='text' name='cuatro' required value='".$obj->foto."'></div>";
+                    echo "<div class='form-group col-lg-6'>Stock: <input class='form-control' type='number' name='seis' required value='".$obj->stock."'></div>";
+                    echo "<div class='form-group col-lg-6'>Categoria: <input class='form-control' type='text' name='siete' required value='".$obj->categoria."'></div>";
+                    echo "<div class='form-group col-lg-6'>Caracteristicas: <textarea class='form-control' name='ocho' rows='5'>".$obj->caracteristicas."</textarea></div>";
+                    echo "<div class='form-group col-lg-6'><input class='form-control' type='hidden' name='uno' required value='".$obj->id_producto."'></div>";
                     echo "<div class='form-group col-lg-6'><input class='form-control' type='submit' name='guardar' value='Guardar'></div>";
                     echo "</form>";
                     echo "</div>";
@@ -71,12 +70,12 @@ if (isset($_POST["guardar"])){
             exit();
         }
 
-        $consulta="UPDATE usuario SET id_usuario='".$_POST['uno']."', id_permiso='".$_POST['dos']."',nombre='".$_POST['tres']."',apellidos='".$_POST['cuatro']."',correo='".$_POST['seis']."',telefono='".$_POST['siete']."',direccion='".$_POST['ocho']."' WHERE id_usuario='".$_POST['uno']."';";
+        $consulta="UPDATE producto SET id_producto='".$_POST['uno']."', nombre='".$_POST['dos']."',precio_unit='".$_POST['tres']."',foto='".$_POST['cuatro']."',stock='".$_POST['seis']."',categoria='".$_POST['siete']."',caracteristicas='".$_POST['ocho']."' WHERE id_producto='".$_POST['uno']."';";
                    if ($connection->query($consulta)) {
-                   echo "Actualizado realizado correctamente";
+                   echo "<div class='alert alert-success'><strong>¡Hecho!</strong> La accion se ha realizado con exito.</div>";
                    }
        $connection->close();
-       header("refresh:0; url=usuario.php");
+       header("refresh:0; url=producto.php");
 
   }
 

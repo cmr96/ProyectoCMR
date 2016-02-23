@@ -1,25 +1,3 @@
-<?PHP
-
-
-/*
-	
-	foreach($array as $valor){
-		
-	}
-	
-	foreach($array as $clave => $valor){
-		
-	}
-
-*/
-
-
-
-
-?>
-
-    
-
 <?php
   session_start();
   if(isset($_SESSION['carrito']) && count($_SESSION['carrito']) > 0){
@@ -42,21 +20,22 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="../hardbytecss.css"/> <!-- CAMBIA -->
+    <link rel="stylesheet" type="text/css" href="hardbytecss.css"/> <!-- CAMBIA -->
     <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
-	<?PHP
-	
-		echo '<pre>'.print_r($_REQUEST, true).'</pre><br>';
-		echo '<pre>'.print_r($_SESSION, true).'</pre>';
-	
-	?>
-	<div>
+  <?PHP
+
+    echo '<pre>'.print_r($_REQUEST, true).'</pre><br>';
+    echo '<pre>'.print_r($_SESSION, true).'</pre>';
+
+
+  ?>
+	<div id="main">
 	  <!-- Inicio LOGIN-REGISTRO -->
 
 	  <script type="text/javascript">
@@ -66,64 +45,27 @@
 		  $('#dialog').dialog();
 	  });
 
-
-	  $('#dialog_link2').click( function() {
-		  $('#dialog2').dialog();
-	  });
-
 	});
 	  </script>
 
 	  <style>
 	  #enviar {float:right;}
+    .desp22 a {
+      color: white;
+    }
 	  </style>
 
-	  <div id="dialog2" title="Crear Usuario" style="display:none">
-		<form action="" method="post" class="login">
-		<table border="0">
-		  <tr>
-			<td>Nombre:  </td>
-			<td><input type="text" name="usu" maxlength="40" size="10" required></td>
-		  </tr>
-		  <tr>
-			<td>Apellidos:  </td>
-			<td><input type="text" name="usu" maxlength="40" size="10" required></td>
-		  </tr>
-		  <tr>
-			<td>E-mail:  </td>
-			<td><input type="text" name="usu" maxlength="40" size="10" required></td>
-		  </tr>
-		  <tr>
-			<tr>
-			  <td>Direccion:  </td>
-			  <td><input type="text" name="usu" maxlength="40" size="10" required></td>
-			</tr>
-			<tr>
-			<tr>
-				<td>Telefono:  </td>
-				<td><input type="text" name="usu" maxlength="40" size="10"></td>
-			  </tr>
-			  <tr>
-			<td>Contraseña:  </td>
-			<td><input type="password" name="pass"  maxlength="40" size="10" required></td>
-		  </tr>
-		  <tr>
-			<td colspan="2"><input type="submit" value="Crear" id="enviar"></td>
-		  </tr>
-		</table>
-		</form>
-	  </div>
 
 
 	<div id="dialog" title="Identificate" style="display:none">
 	  <form action="home.php" method="post" class="login">
 	  <table border="0">
 		<tr>
-		  <td>E-mail:  </td>
+		  <td id="son">E-mail:  </td>
 		  <td><input type="text" name="usu" maxlength="40" size="10" required></td>
 		</tr>
 		<tr>
-		  <td>Contraseña:  </td>
+		  <td id="son">ContraseÃ±a:  </td>
 		  <td><input type="password" name="pass"  maxlength="40" size="10" required></td>
 		</tr>
 		<tr>
@@ -137,7 +79,7 @@
 
 		if (isset($_POST["usu"])) {
 
-		  $connection = new mysqli("localhost", "root", "", "hardbyte");
+		  $connection = new mysqli("localhost", "root", "1234", "hardbyte");
 
 		  if ($connection->connect_errno) {
 			  printf("Connection failed: %s\n", $connection->connect_error);
@@ -172,22 +114,22 @@
 	<!-- Fin LOGIN-REGISTRO -->
 
 		<div id="encabezado">
-			<img id="fotouno" src="./img/logo.jpg"> <!-- CAMBIA -->
-			<div id="desp">
-				<div id="desp3">
-					<div id="desp21"> <!-- CAMBIA -->
+			<img id="fotouno" src="img/logo.jpg"> <!-- CAMBIA -->
+			<div class="desp">
+				<div class="desp3">
+					<div class="desp21" style="color:#0C5484;"> <!-- CAMBIA -->
 					<p>
-						<a href="../home.php"> INICIO </a> <!-- CAMBIA -->
+						<a href="home.php"> INICIO </a> <!-- CAMBIA -->
 					</p>
 				</div>
-					  <div id="desp22" style="background-color:#97C5E4;color:#fff;">
-					<p><a href="./segundarias/tienda.php"> TIENDA </a> <!-- CAMBIA -->
+					  <div class="desp22" style="background-color:#0C5484;color:#ffffff">
+					<p><a href="tienda.php"> TIENDA </a> <!-- CAMBIA -->
 				  </p></div>
-					  <div id="desp23" class=hide1>
-						<p><a href="./producto.php"> PRODUCTOS </a> <!-- CAMBIA -->
+					  <div class="desp23" class="hide1" style="color:#0C5484">
+						<p><a href="producto.php"> PRODUCTOS </a> <!-- CAMBIA -->
 					  </p></div>
-						  <div id="desp24" class=hide2>
-					  <p><a href="./usuario.php"> USUARIOS </a> <!-- CAMBIA -->
+						  <div class="desp24" class="hide2" style="color:#0C5484">
+					  <p><a href="usuario.php"> USUARIOS </a> <!-- CAMBIA -->
 					  </p></div>
 				  </div>
 			</div>
@@ -204,27 +146,48 @@
 				  <?php
 
 					  if (isset($_SESSION["usu"])) {
-						echo "<li><a href='segundarias/cerrarsesion.php'>Desconectarse</a></li>";
+						echo "<li><a href='cerrarsesion.php'>Desconectarse</a></li>";
 						}
 
 				  ?>
-				  <!-- Fin Conect/Desconect -->
 
-					<li id="dialog_link2">Crear Cuenta</li>
+          <?php
+
+              if (!isset($_SESSION["usu"])) {
+                echo "<li><a href='crearuser.php'>Crear Cuenta</a></li>";
+                }
+
+          ?>
+
+				  <!-- Fin Conect/Desconect -->
 				</ul>
 			</div>
 
 			<!-- Inicio Carrito -->
+
+
 			<div class="dropdown">
-			  <button class="dropbtn"><i class="fa fa-shopping-cart fa-2x"></i></button>
+			  <button class="dropbtn"><i class="fa fa-shopping-cart fa-2x fa-lg"></i></button>
 			  <div class="dropdown-content">
 			<?PHP
-				for($i = 0; $i < 5; $i++){
+      if(isset($_SESSION['carrito'])){
+
+      	$connection = new mysqli("localhost", "root", "1234", "hardbyte");
+        foreach($_SESSION['carrito'] as $id => $cantidad){
+                    if($cantidad > 0){
+
+              if ($result = $connection->query("SELECT * FROM producto WHERE id_producto='$id'")) {
+                  while($obj = $result->fetch_object()) {
+                      echo "<a href='descripcion.php?id_producto=$obj->id_producto'><img src='img/".$obj->foto."'><br>";
+                      echo substr($obj->nombre, 0, 12)."...<br>";
+                      echo "Cantidad: ".$cantidad."</a><br>";
+                  }
+                }
+        }
+      }
+    }
 			?>
-				<a href="#"><img src="./segundarias/img/no_foto.jpg"> <?PHP echo 'Producto '.($i+1); ?></a>
-			<?PHP
-				}
-			?>
+        <a href="pedido.php"><p>Ver Carrito</p></a>
 			  </div>
 			</div>
 
@@ -311,7 +274,7 @@
   width: 80px;
   height: 30px;
   color: #008a00;
-  margin: -30 auto auto 260;
+  margin: -20 auto auto 260;
   display: block;
 }
 #medio {
@@ -326,7 +289,7 @@
 
       <?php
 
-        $connection = new mysqli("localhost", "root", "", "hardbyte");
+        $connection = new mysqli("localhost", "root", "1234", "hardbyte");
 
 
         if ($connection->connect_errno) {
@@ -335,7 +298,7 @@
         }
 
 
-        if ($result = $connection->query("SELECT * FROM producto ")) {
+        if ($result = $connection->query("SELECT * FROM producto;")) {
 
             printf("<p id='titu'>Tienda HardByte:</p>");
 
@@ -385,15 +348,15 @@
 
       ?>
 
-		</div>
+    </div>
 
-		<div id="final">
-			<div id="f">
-			</br>
-			  <p style="text-decoration: none;">Conocenos</p>
-			  <p style="text-decoration: none;">Asistencia 24h</p>
-			</div>
-		</div>
-	</div>
+    <div id="final">
+      <div id="f">
+      </br>
+      <p style="text-decoration: none;"><a href="conocenos.php">Conocenos</a></p>
+      <p style="text-decoration: none;"><a href="asistencia.php">Asistencia 24h</a></p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -40,7 +40,7 @@ CREATE TABLE PRODUCTO (
 
 CREATE TABLE ENTRADA_PEDIDO (
 	id_producto INT NOT NULL,
-  id_pedido INT NOT NULL,
+  	id_pedido INT NOT NULL,
 	cantidad INT NOT NULL,
 	FOREIGN KEY (id_producto)
         REFERENCES PRODUCTO(id_producto),

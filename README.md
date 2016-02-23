@@ -6,10 +6,8 @@ Este es un proyecto para el segundo curso de 2º ASIR de la asignatura Implantac
 
 Proximos puntos:
 
-- conocenos y asistencia en otra pg
-- modificar producto
-- pagina ver carrito
-- terminar carrito
+- enviar pedido y crear lineas en tabla
 - permisos
 - poner fondos
 - puntos y tildes
+- input readonly
