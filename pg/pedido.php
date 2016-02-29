@@ -36,9 +36,6 @@
 
 	  <style>
 	  #enviar {float:right;}
-    .desp21 a {
-      color: white;
-    }
 	  </style>
 
 
@@ -124,7 +121,7 @@
 			<img id="fotouno" src="img/logo.jpg"> <!-- CAMBIA -->
 			<div class="desp">
 				<div class="desp3">
-					<div class="desp21" style="background-color:#0C5484;color:#ffffff;"> <!-- CAMBIA -->
+					<div class="desp21" style="color:#0C5484"> <!-- CAMBIA -->
 					<p>
 						<a href="home.php"> INICIO </a> <!-- CAMBIA -->
 					</p>

@@ -37,7 +37,7 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
 
   	  <style>
   	  #enviar {float:right;}
-      .desp21 a {
+      .desp24 a {
         color: white;
       }
   	  </style>
@@ -125,7 +125,7 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
   			<img id="fotouno" src="img/logo.jpg"> <!-- CAMBIA -->
   			<div class="desp">
   				<div class="desp3">
-  					<div class="desp21" style="background-color:#0C5484;color:#ffffff;"> <!-- CAMBIA -->
+  					<div class="desp21" style="color:#0C5484"> <!-- CAMBIA -->
   					<p>
   						<a href="home.php"> INICIO </a> <!-- CAMBIA -->
   					</p>
@@ -145,7 +145,7 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
   						}
   						if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
   					?>
-  						<div class="desp24" class="hide2" style="color:#0C5484">
+  						<div class="desp24" class="hide2" style="background-color:#0C5484;color:#ffffff;">
   							<p><a href="usuario.php"> USUARIOS </a> <!-- CAMBIA -->
   							</p>
   						</div>
