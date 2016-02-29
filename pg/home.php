@@ -1,6 +1,9 @@
 <?php
   session_start();
 ?>
+<?php
+ include_once("./db_configuration.php");
+?>
 <html>
 <head>
   <meta charset="utf-8">
@@ -61,7 +64,7 @@
 
 		if (isset($_POST["usu"])) {
 
-		  $connection = new mysqli("localhost", "root", "1234", "hardbyte");
+		  $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 
 		  if ($connection->connect_errno) {
 			  printf("Connection failed: %s\n", $connection->connect_error);
@@ -84,7 +87,28 @@
 				$_SESSION["usu"]=$_POST["usu"];
 				$_SESSION["language"]="es";
 
-				header("Location: home.php");
+				$_SESSION['permiso'] = [];
+
+				$result=$connection->query("
+				SELECT
+				permiso.usuarios AS usuarios,
+				permiso.productos AS productos
+				FROM usuario, permiso
+				WHERE
+				usuario.correo = '".$_SESSION['usu']."'
+				AND
+				usuario.id_permiso = permiso.id_permiso
+				");
+				$permisos=$result->fetch_assoc();
+
+				foreach($permisos as $clave => $valor){
+					$permisos[$clave] = explode(":", $valor);
+				}
+				$_SESSION['permisos'] = $permisos;
+
+				$query->close();
+
+				//header("Location: home.php");
 			  }
 		  } else {
 			echo "Wrong Query";
@@ -104,15 +128,28 @@
 						<a href="home.php"> INICIO </a> <!-- CAMBIA -->
 					</p>
 				</div>
-					  <div class="desp22" style="color:#0C5484">
-					<p><a href="tienda.php"> TIENDA </a> <!-- CAMBIA -->
-				  </p></div>
-					  <div class="desp23" class="hide1" style="color:#0C5484">
-						<p><a href="producto.php"> PRODUCTOS </a> <!-- CAMBIA -->
-					  </p></div>
-						  <div class="desp24" class="hide2" style="color:#0C5484">
-					  <p><a href="usuario.php"> USUARIOS </a> <!-- CAMBIA -->
-					  </p></div>
+						<div class="desp22" style="color:#0C5484">
+							<p><a href="tienda.php"> TIENDA </a> <!-- CAMBIA -->
+							</p>
+						</div>
+					<?PHP
+						if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
+					?>
+						<div class="desp23" class="hide1" style="color:#0C5484">
+							<p><a href="producto.php"> PRODUCTOS </a> <!-- CAMBIA -->
+							</p>
+						</div>
+					<?PHP
+						}
+						if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
+					?>
+						<div class="desp24" class="hide2" style="color:#0C5484">
+							<p><a href="usuario.php"> USUARIOS </a> <!-- CAMBIA -->
+							</p>
+						</div>
+					<?PHP
+						}
+					?>
 				  </div>
 			</div>
 			<div id="ul">
@@ -153,7 +190,7 @@
 			<?PHP
       if(isset($_SESSION['carrito'])){
 
-      	$connection = new mysqli("localhost", "root", "1234", "hardbyte");
+      	$connection = new mysqli($db_host, $db_user, $db_password, $db_name);
         foreach($_SESSION['carrito'] as $id => $cantidad){
                     if($cantidad > 0){
 

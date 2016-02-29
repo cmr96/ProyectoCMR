@@ -6,8 +6,12 @@ Este es un proyecto para el segundo curso de 2º ASIR de la asignatura Implantac
 
 Proximos puntos:
 
-- enviar pedido y crear lineas en tabla
-- permisos
+- paginas blancas sin permiso
 - poner fondos
 - puntos y tildes
-- input readonly
+- quitar stock
+- no pedido superior a stock
+
+Notas:
+
+Input readonly

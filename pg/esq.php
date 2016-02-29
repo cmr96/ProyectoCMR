@@ -1,9 +1,6 @@
 <?php
   session_start();
 ?>
-<?php
- include_once("./db_configuration.php");
-?>
 <html>
 <head>
   <meta charset="utf-8">
@@ -11,7 +8,6 @@
     <title>Hardbyte S.L</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="hardbytecss.css"/> <!-- CAMBIA -->
     <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
@@ -65,7 +61,7 @@
 
 		if (isset($_POST["usu"])) {
 
-		  $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+		  $connection = new mysqli("localhost", "root", "1234", "hardbyte");
 
 		  if ($connection->connect_errno) {
 			  printf("Connection failed: %s\n", $connection->connect_error);
@@ -191,7 +187,7 @@
 			<?PHP
       if(isset($_SESSION['carrito'])){
 
-      	$connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+      	$connection = new mysqli("localhost", "root", "1234", "hardbyte");
         foreach($_SESSION['carrito'] as $id => $cantidad){
                     if($cantidad > 0){
 
@@ -214,136 +210,3 @@
 
 		</div>
 		<div id="medio">
-
-    <style>
-    #medio td {
-      color: #FFFFFF;
-      padding-left: 20px;
-      padding-top: 5px;
-    }
-    #medio h1 {
-      color: #FFFFFF;
-      padding-top: 20px;
-      padding-left: 20px;
-    }
-    #medio {
-      margin-top: -22px
-    }
-    #final {
-      margin-top: -10px;
-    }
-    .container-page {
-      color: white;
-    }
-    .form-group {
-      color: white;
-    }
-    </style>
-
-
-      <?php
-
-      printf("<h1>Crear Usuario</h1>");
-      if (!isset($_POST["nombre"])) :
-      $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
-      if ($connection->connect_errno) {
-          printf("Connection failed: %s\n", $mysqli->connect_error);
-          exit();
-
-
-      }
-
-        ?>
-      <form action="" method="post" class="id_usuario">
-        <?php
-        echo "<div class='container-page'>";
-        ?>
-
-
-
-              <?php
-               // elegir usuario:
-               $result=$connection->query("select MAX(id_usuario) as id from usuario");
-               while ($fila=$result->fetch_object()) {
-               $res=$fila->id;
-               $res=$res+1;
-
-                }
-               ?>
-          </div>
-
-              <div class='form-group col-lg-6'>
-                Nombre:
-                <input class='form-control' type=text name='nombre' required>
-              </div>
-              <div class='form-group col-lg-6'>
-                Apellidos:
-                <input class='form-control' type=text name='apellidos' required>
-              </div>
-              <div class='form-group col-lg-6'>
-                Password:
-                <input class='form-control' type=text name='password' required>
-              </div>
-              <div class='form-group col-lg-6'>
-                Correo:
-                <input class='form-control' type=email name='correo' required>
-              </div>
-              <div class='form-group col-lg-6'>
-                Telefono:
-                <input class='form-control' type=text name='telefono'>
-              </div>
-              <div class='form-group col-lg-6'>
-              Direccion:
-              <input class='form-control' type=text name='direccion'required>
-              </div>
-              <?php
-              echo "<div class='form-group col-lg-6'><input class='ev' type='hidden'></div>";
-              echo "<div class='form-group col-lg-6'><input class='ev' type='hidden'></div>";
-              ?>
-              <div class='form-group col-lg-6'>
-              <input class='form-control' type=submit value="Crear" id="enviar">
-              </div>
-              <?php
-              echo "</div>";
-              ?>
-            </form>
-
-
-        <?php  else: ?>
-
-        <?php
-        $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
-        $nombre=$_POST["nombre"];
-        $apellidos=$_POST["apellidos"];
-        $password=$_POST["password"];
-        $correo=$_POST["correo"];
-        $telefono=$_POST["telefono"];
-        $direccion=$_POST["direccion"];
-
-        $result=$connection->query("select MAX(id_usuario) as id from usuario");
-        while ($fila=$result->fetch_object()) {
-        $res=$fila->id;
-        $res=$res+1;
-
-        $insert="INSERT INTO usuario VALUES ('$res', 'user', '$nombre', '$apellidos', MD5('$password'), '$correo', '$telefono', '$direccion')";
-                        }
-        $connection->query( $insert );
-        header("refresh:0; url=home.php");
-
-      ?>
-
-
-        <?php endif ?>
-
-      </div>
-
-      <div id="final">
-        <div id="f">
-        </br>
-          <p style="text-decoration: none;"><a href="conocenos.php">Conocenos</a></p>
-          <p style="text-decoration: none;"><a href="asistencia.php">Asistencia 24h</a></p>
-        </div>
-      </div>
-    </div>
-  </body>
-  </html>

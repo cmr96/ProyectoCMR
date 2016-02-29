@@ -1,3 +1,8 @@
+
+<?php
+ include_once("./db_configuration.php");
+?>
+
 <?PHP
 	if(isset($_REQUEST['id_producto']) && $_REQUEST['id_producto'] != ''){
 		session_start();

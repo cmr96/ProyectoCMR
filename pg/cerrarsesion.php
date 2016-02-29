@@ -1,3 +1,7 @@
+
+<?php
+ include_once("./db_configuration.php");
+?>
 <?php
   session_start();
 ?>

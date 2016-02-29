@@ -1,9 +1,16 @@
 <?php
   session_start();
-?>
-
-<?php
- include_once("./db_configuration.php");
+  if(isset($_SESSION['carrito']) && count($_SESSION['carrito']) > 0){
+	  //QUERY PARA EXTRAER LOS PRODUCTOS CON LAS ID INDICADAS
+	  /*
+			$cadena = '';
+			foreach($_SESSION['carrito'] as $id_producto => $cantidad){
+				if($cadena != ''){$cadena .= ', ';}
+				$cadena .= $id_producto;
+			}
+	  */
+	  //SELECT * FROM PRODUCTOS WHERE ID_PRODUCTO IN($cadena)
+  }
 ?>
 <html>
 <head>
@@ -21,7 +28,13 @@
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
+  <?PHP
 
+    echo '<pre>'.print_r($_REQUEST, true).'</pre><br>';
+    echo '<pre>'.print_r($_SESSION, true).'</pre>';
+
+
+  ?>
 	<div id="main">
 	  <!-- Inicio LOGIN-REGISTRO -->
 
@@ -67,7 +80,7 @@
 
     		if (isset($_POST["usu"])) {
 
-    		  $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+    		  $connection = new mysqli("localhost", "root", "1234", "hardbyte");
 
     		  if ($connection->connect_errno) {
     			  printf("Connection failed: %s\n", $connection->connect_error);
@@ -193,7 +206,7 @@
 			<?PHP
       if(isset($_SESSION['carrito'])){
 
-      	$connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+      	$connection = new mysqli("localhost", "root", "1234", "hardbyte");
         foreach($_SESSION['carrito'] as $id => $cantidad){
                     if($cantidad > 0){
 
@@ -310,7 +323,7 @@
 
       <?php
 
-        $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+        $connection = new mysqli("localhost", "root", "1234", "hardbyte");
 
 
         if ($connection->connect_errno) {

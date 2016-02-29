@@ -1,3 +1,7 @@
+
+<?php
+ include_once("./db_configuration.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +13,7 @@
 
 
 <?php
-$connection = new mysqli("localhost", "root", "1234", "hardbyte");
+$connection = new mysqli($db_host, $db_user, $db_password, $db_name);
 $link=$_GET["id_producto"];
 
 $delete1="DELETE FROM producto WHERE id_producto='$link'";

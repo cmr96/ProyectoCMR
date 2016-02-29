@@ -21,38 +21,42 @@ CREATE TABLE ENTRADA_PEDIDO (
 );
 -->
 
+
 <?PHP
   session_start();
-  $connection = new mysqli("localhost", "root", "1234", "hardbyte");
-  if (!isset($_SESSION["usu"])) {
-$result1 = $connection->query("SELECT id_usuario FROM usuario WHERE correo=".$_SESSION['usu']);
 
-$sumatotal=$_GET['sumatotal'];
-$insert1="INSERT INTO pedido VALUES ('$result1', NULL, 'sysdate()', '$sumatotal', 'Ninguna')";
-echo $insert1;
+ include_once("./db_configuration.php");
+
+  $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
+  $id_usuario = '';
+	$fechaPedido = getdate();
+if (isset($_SESSION["usu"]) && $_SESSION['usu'] != '') {
+	$result1 = $connection->query("SELECT id_usuario FROM usuario WHERE correo='".$_SESSION['usu']."'");
+	$fila = $result1->fetch_assoc();
+	$id_usuario = $fila['id_usuario'];
+		// echo '<pre>'.print_r($_REQUEST, true).'</pre>';
+		// echo '<pre>'.print_r($_SESSION, true).'</pre>';
+	$sumatotal=$_REQUEST['sumatotal'];
+	$insert1="INSERT INTO pedido VALUES ('".$id_usuario."', NULL, '".$fechaPedido['year']."-".$fechaPedido['mon']."-".$fechaPedido['mday']."', '".$sumatotal."', 'Ninguna')";
+	// echo $insert1.'<BR>';
+	$connection->query($insert1);
 }
 
 
-$result=$connection->query("select MAX(id_pedido) as id from pedido");
-while ($fila=$result->fetch_object()) {
-$res=$fila->id;
-$res=$res+1;
-}
+$result=$connection->query("SELECT MAX(id_pedido) AS id FROM pedido WHERE id_usuario = '".$id_usuario."' AND fecha = '".$fechaPedido['year']."-".$fechaPedido['mon']."-".$fechaPedido['mday']."'");
+$fila=$result->fetch_object();
+
 
 foreach($_SESSION['carrito'] as $id => $cantidad){
-      if($cantidad > 0){
-      if ($result3 = $connection->query("SELECT * FROM producto WHERE id_producto='$id'")) {
-        while($obj3 = $result3->fetch_object()) {
-
-
-$insert2="INSERT INTO entrada_pedido VALUES ('$obj3->id_producto', '$res', '$cantidad')";
-echo $insert2;
-}
-}
-}
+	if($cantidad > 0){
+		$insert2="INSERT INTO entrada_pedido VALUES ('".$id."', '".$fila->id."', '".$cantidad."')";
+			// echo $insert2;
+		$connection->query($insert2);
+	}
 }
 
+$_SESSION['carrito'] = [];
 
+header("refresh:0; url=pedido.php");
 
-header("refresh:20; url=pedido.php");
 ?>
