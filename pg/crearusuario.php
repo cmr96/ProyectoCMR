@@ -37,7 +37,7 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
 
 	  <style>
 	  #enviar {float:right;}
-    .desp21 a {
+    .desp24 a {
       color: white;
     }
 	  </style>
@@ -123,37 +123,37 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
 
 		<div id="encabezado">
 			<img id="fotouno" src="img/logo.jpg"> <!-- CAMBIA -->
-			<div class="desp">
-				<div class="desp3">
-					<div class="desp21" style="background-color:#0C5484;color:#ffffff;"> <!-- CAMBIA -->
-					<p>
-						<a href="home.php"> INICIO </a> <!-- CAMBIA -->
-					</p>
-				</div>
-						<div class="desp22" style="color:#0C5484">
-							<p><a href="tienda.php"> TIENDA </a> <!-- CAMBIA -->
-							</p>
-						</div>
-					<?PHP
-						if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
-					?>
-						<div class="desp23" class="hide1" style="color:#0C5484">
-							<p><a href="producto.php"> PRODUCTOS </a> <!-- CAMBIA -->
-							</p>
-						</div>
-					<?PHP
-						}
-						if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
-					?>
-						<div class="desp24" class="hide2" style="color:#0C5484">
-							<p><a href="usuario.php"> USUARIOS </a> <!-- CAMBIA -->
-							</p>
-						</div>
-					<?PHP
-						}
-					?>
-				  </div>
-			</div>
+      <div class="desp">
+        <div class="desp3">
+          <div class="desp21" style="color:#0C5484"> <!-- CAMBIA -->
+          <p>
+            <a href="home.php"> INICIO </a> <!-- CAMBIA -->
+          </p>
+        </div>
+            <div class="desp22" style="color:#0C5484">
+              <p><a href="tienda.php"> TIENDA </a> <!-- CAMBIA -->
+              </p>
+            </div>
+          <?PHP
+            if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
+          ?>
+            <div class="desp23" class="hide1" style="color:#0C5484">
+              <p><a href="producto.php"> PRODUCTOS </a> <!-- CAMBIA -->
+              </p>
+            </div>
+          <?PHP
+            }
+            if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
+          ?>
+            <div class="desp24" class="hide2" style="background-color:#0C5484;color:#ffffff;">
+              <p><a href="usuario.php"> USUARIOS </a> <!-- CAMBIA -->
+              </p>
+            </div>
+          <?PHP
+            }
+          ?>
+          </div>
+      </div>
 			<div id="ul">
 				<ul>
 				  <!-- Inicio Conect/Desconect -->
@@ -275,11 +275,22 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
           </div>
 
               <div class='form-group col-lg-6'>
-                id_permiso:
 
-                  <input class='form-control' type=text name='id_permiso' placeholder='user, mod o admin' required>
+              id_permiso:
+        <?php
+
+        echo '<select class="form-control" name="id_permiso" required>';
+        $result=$connection->query("select id_permiso from permiso");
+        while ($fila=$result->fetch_object()) {
+
+      echo  "<option value='$fila->id_permiso'>$fila->id_permiso</option>";
+
+      }
+      echo '</select>';
+          ?>
 
               </div>
+
               <div class='form-group col-lg-6'>
                 Nombre:
                 <input class='form-control' type=text name='nombre' required>
