@@ -1,4 +1,6 @@
-
+table th {
+  text-align: center;
+}
 #main {
     margin: 10 auto;
 }
@@ -15,14 +17,14 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
+
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-left: 200px;
-
+    margin-left: 150px;
 }
 .dropdown img {
   height: 55px;
@@ -93,6 +95,9 @@
   text-decoration: none;
 }
 .desp24 a {
+  text-decoration: none;
+}
+.desp25 a {
   text-decoration: none;
 }
 #encabezado {
@@ -254,6 +259,9 @@
 .desp24 p {
     margin-top: 15px;
 }
+.desp25 p {
+    margin-top: 15px;
+}
 .desp21:hover {
   background-color: #0C5484;
 }
@@ -266,6 +274,9 @@
 .desp24:hover {
   background-color: #0C5484;
 }
+.desp25:hover {
+  background-color: #0C5484;
+}
 .desp21:hover p a {
   color:#ffffff;
 }
@@ -276,6 +287,9 @@
   color:#ffffff;
 }
 .desp24:hover p a {
+  color:#ffffff;
+}
+.desp25:hover p a {
   color:#ffffff;
 }
 .desp22 {
@@ -311,6 +325,17 @@
     width: 120px;
     text-align: center;
 }
+.desp25 {
+    display: inline;
+    float: left;
+    font-size: 16px;
+    margin-top: -17px;
+    font-family: 'Candal', sans-serif;
+    height: 62px;
+    border: 2px solid #0C5484;
+    width: 120px;
+    text-align: center;
+}
 
 .hide1 {
     display: inline;
@@ -330,9 +355,18 @@
     font-family: 'Candal', sans-serif;
     visibility: visible;
 }
+.hide3 {
+    display: inline;
+    float: left;
+    color: #0C5484;
+    font-size: 16px;
+    margin-top: 0px;
+    font-family: 'Candal', sans-serif;
+    visibility: visible;
+}
 
 .desp3 {
     display: inline;
     float: left;
-    margin-left: 40px;
+    margin-left: 0px;
 }

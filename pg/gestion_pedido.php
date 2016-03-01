@@ -1,7 +1,10 @@
+
 <?php
 session_start();
-if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
+
+if(isset($_SESSION['permisos']) && $_SESSION['permisos']['pedidos'][0]){
   ?>
+
 
 <?php
  include_once("./db_configuration.php");
@@ -37,7 +40,7 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
 
   	  <style>
   	  #enviar {float:right;}
-      .desp23 a {
+      .desp25 a {
         color: white;
       }
   	  </style>
@@ -94,7 +97,7 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
   				$result=$connection->query("
   				SELECT
   				permiso.usuarios AS usuarios,
-  				permiso.productos AS productos,
+  				permiso.pedidos AS pedidos,
           permiso.pedidos AS pedidos
   				FROM usuario, permiso
   				WHERE
@@ -136,9 +139,9 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
   							</p>
   						</div>
   					<?PHP
-  						if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
+  						if(isset($_SESSION['permisos']) && $_SESSION['permisos']['pedidos'][0]){
   					?>
-  						<div class="desp23" class="hide1" style="background-color:#0C5484;color:#ffffff;">
+  						<div class="desp23" class="hide1" style="color:#0C5484;">
   							<p><a href="producto.php"> PRODUCTOS </a> <!-- CAMBIA -->
   							</p>
   						</div>
@@ -150,19 +153,20 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
   							<p><a href="usuario.php"> USUARIOS </a> <!-- CAMBIA -->
   							</p>
   						</div>
-              <?PHP
-    						}
-              if(isset($_SESSION['permisos']) && $_SESSION['permisos']['pedidos'][0]){
-            ?>
-              <div class="desp25" class="hide3" style="color:#0C5484">
-                <p><a href="gestion_pedido.php"> PEDIDOS </a> <!-- CAMBIA -->
-                </p>
-              </div>
-            <?PHP
-              }
-            ?>
+  					<?PHP
+  						}
+            if(isset($_SESSION['permisos']) && $_SESSION['permisos']['pedidos'][0]){
+          ?>
+            <div class="desp25" class="hide3" style="background-color:#0C5484;color:#ffffff;">
+              <p><a href="gestion_pedido.php"> PEDIDOS </a> <!-- CAMBIA -->
+              </p>
             </div>
-    				  </div>
+          <?PHP
+            }
+          ?>
+          </div>
+  				  </div>
+
   			<div id="ul">
   				<ul>
   				  <!-- Inicio Conect/Desconect -->
@@ -205,10 +209,10 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
           foreach($_SESSION['carrito'] as $id => $cantidad){
                       if($cantidad > 0){
 
-                if ($result = $connection->query("SELECT * FROM producto WHERE id_producto='$id'")) {
+                if ($result = $connection->query("SELECT * FROM pedido WHERE id_pedido='$id'")) {
                     while($obj = $result->fetch_object()) {
-                        echo "<a href='descripcion.php?id_producto=$obj->id_producto'><img src='img/".$obj->foto."'><br>";
-                        echo substr($obj->nombre, 0, 12)."...<br>";
+                        echo "<a href='descripcion.php?id_pedido=$obj->id_pedido'><img src='img/".$obj->foto."'><br>";
+                        echo substr($obj->id_usuario, 0, 12)."...<br>";
                         echo "Cantidad: ".$cantidad."</a><br>";
                     }
                   }
@@ -261,31 +265,23 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
       }
 
 
-      if ($result = $connection->query("SELECT * FROM producto;")) {
+      if ($result = $connection->query("SELECT * FROM pedido;")) {
 
-          printf("<h1>Productos de HardByte</h1>");
+          printf("<h1>pedidos de HardByte</h1>");
 
       ?>
 
           <!-- PRINT THE TABLE AND THE HEADER -->
           <table class="table">
             <thead>
-                <th>id_producto</th>
-                <th>Nombre</th>
-                <th>Precio_unit</th>
-                <th>Foto</th>
-                <th>Stock</th>
-                <th>Categoria</th>
-                <th>Caracteristicas</th>
-                <th>Editar</th>
-
-                <?PHP
-                        if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][2]){ ?> <th>Borrar</th> <?PHP }
-                ?>
-
+                <th>id_pedido</th>
+                <th>id_usuario</th>
+                <th>Fecha</th>
+                <th>Precio</th>
+                <th>Observaciones</th>
             </thead>
 
-          <a href="crearproducto.php"><button> Crear Producto </button></br></br>
+
 
       <?php
 
@@ -294,15 +290,11 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][0]){
           while($obj = $result->fetch_object()) {
               //PRINTING EACH ROW
               echo "<tr align='center'>";
-              echo "<td>".$obj->id_producto."</td>";
-              echo "<td>".$obj->nombre."</td>";
-              echo "<td>".$obj->precio_unit."</td>";
-              echo "<td>".$obj->foto."</td>";
-              echo "<td>".$obj->stock."</td>";
-              echo "<td>".$obj->categoria."</td>";
-              echo "<td>".$obj->caracteristicas."</td>";
-              echo "<td><a href='editarproducto.php?id_producto=$obj->id_producto'><img style='height: 25px;width: 25px;' src='img/sec2.jpg'></a></td>";
-              if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][2]){echo "<td><a href='borrarproducto.php?id_producto=$obj->id_producto'><img style='height: 25px;width: 25px;' src='img/sec1.png'></a></td>";}
+              echo "<td>".$obj->id_pedido."</td>";
+              echo "<td>".$obj->id_usuario."</td>";
+              echo "<td>".$obj->fecha."</td>";
+              echo "<td>".$obj->precio."</td>";
+              echo "<td>".$obj->observaciones."</td>";
               echo "</tr>";
           }
 

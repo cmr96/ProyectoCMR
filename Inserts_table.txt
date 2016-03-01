@@ -1,6 +1,6 @@
-INSERT INTO `hardbyte`.`permiso`(`id_permiso`, `productos`, `usuarios`, `tienda`) VALUES ('user','0:0:0','0:0:0','1:0:0');
-INSERT INTO `hardbyte`.`permiso`(`id_permiso`, `productos`, `usuarios`, `tienda`) VALUES ('mod','1:1:0','0:0:0','1:0:0');
-INSERT INTO `hardbyte`.`permiso`(`id_permiso`, `productos`, `usuarios`, `tienda`) VALUES ('admin','1:1:1','1:1:1','1:1:1');
+INSERT INTO `hardbyte`.`permiso`(`id_permiso`, `pedidos`, `productos`, `usuarios`, `tienda`) VALUES ('user','0:0:0','0:0:0','0:0:0','1:0:0');
+INSERT INTO `hardbyte`.`permiso`(`id_permiso`, `pedidos`, `productos`, `usuarios`, `tienda`) VALUES ('mod','0:0:0','1:1:0','0:0:0','1:0:0');
+INSERT INTO `hardbyte`.`permiso`(`id_permiso`, `pedidos`, `productos`, `usuarios`, `tienda`) VALUES ('admin','1:1:1','1:1:1','1:1:1','1:1:1');
 
 INSERT INTO `hardbyte`.`usuario` (`id_usuario`, `id_permiso`, `nombre`, `apellidos`, `password`, `correo`, `telefono`, `direccion`) VALUES (NULL, 'user', 'Matilde', 'Romero Zarco', MD5('1234'), 'prueba1@hotmail.com', '111111111', 'C/San Vicente de Paul');
 INSERT INTO `hardbyte`.`usuario` (`id_usuario`, `id_permiso`, `nombre`, `apellidos`, `password`, `correo`, `telefono`, `direccion`) VALUES (NULL, 'mod', 'Luis Daniel', 'Martinez Abreu', MD5('1234'), 'prueba2@hotmail.com', '222222222', 'C/Luis Mensaque');

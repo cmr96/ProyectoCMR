@@ -94,7 +94,8 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
   				$result=$connection->query("
   				SELECT
   				permiso.usuarios AS usuarios,
-  				permiso.productos AS productos
+  				permiso.productos AS productos,
+          permiso.pedidos AS pedidos
   				FROM usuario, permiso
   				WHERE
   				usuario.correo = '".$_SESSION['usu']."'
@@ -149,11 +150,19 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
   							<p><a href="usuario.php"> USUARIOS </a> <!-- CAMBIA -->
   							</p>
   						</div>
-  					<?PHP
-  						}
-  					?>
-  				  </div>
-  			</div>
+              <?PHP
+    						}
+              if(isset($_SESSION['permisos']) && $_SESSION['permisos']['pedidos'][0]){
+            ?>
+              <div class="desp25" class="hide3" style="color:#0C5484">
+                <p><a href="gestion_pedido.php"> PEDIDOS </a> <!-- CAMBIA -->
+                </p>
+              </div>
+            <?PHP
+              }
+            ?>
+            </div>
+    				  </div>
   			<div id="ul">
   				<ul>
   				  <!-- Inicio Conect/Desconect -->
@@ -316,5 +325,7 @@ if(isset($_SESSION['permisos']) && $_SESSION['permisos']['usuarios'][0]){
 </html>
 
 <?php
+}else{
+  header("Location:home.php");
 }
   ?>

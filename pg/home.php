@@ -92,7 +92,8 @@
 				$result=$connection->query("
 				SELECT
 				permiso.usuarios AS usuarios,
-				permiso.productos AS productos
+				permiso.productos AS productos,
+        permiso.pedidos AS pedidos
 				FROM usuario, permiso
 				WHERE
 				usuario.correo = '".$_SESSION['usu']."'
@@ -147,11 +148,19 @@
 							<p><a href="usuario.php"> USUARIOS </a> <!-- CAMBIA -->
 							</p>
 						</div>
-					<?PHP
-						}
-					?>
-				  </div>
-			</div>
+            <?PHP
+  						}
+            if(isset($_SESSION['permisos']) && $_SESSION['permisos']['pedidos'][0]){
+          ?>
+            <div class="desp25" class="hide3" style="color:#0C5484">
+              <p><a href="gestion_pedido.php"> PEDIDOS </a> <!-- CAMBIA -->
+              </p>
+            </div>
+          <?PHP
+            }
+          ?>
+          </div>
+  				  </div>
 			<div id="ul">
 				<ul>
 				  <!-- Inicio Conect/Desconect -->
@@ -218,7 +227,7 @@
 			<img id="fotodos" src="img/img2.jpg"> <!-- CAMBIA -->
 			<img id="fotodos" src="img/img3.jpg"> <!-- CAMBIA -->
 			<div id="cap"><h2>Lo mejor en componentes</h2>Elige las mejores piezas para tu PC en HardByte.</div>
-			<div id="acc"><h2>Productos nuevos</h2>Cada dia hay productos nuevos, no te los pierdas</div>
+			<div id="acc"><h2>Productos nuevos</h2>Cada dia hay productos nuevos, no te los pierdas.</div>
 			<div id="fin"><h2>Entrega ahora mas rapida</h2>Compra ahora rapido y mejor, con nuestro nuevo servicio de entrega a domicilio.</div>
 		 <div id="boton">
 			 <img id="bot" src="img/boton.jpg"> <!-- CAMBIA -->

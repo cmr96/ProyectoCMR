@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+if(isset($_SESSION['permisos']) && $_SESSION['permisos']['productos'][2]){
+?>
 <?php
  include_once("./db_configuration.php");
 ?>
@@ -25,3 +28,10 @@ header("refresh:0; url=producto.php");
 
 </body>
 </html>
+
+<?php
+}
+else{
+  header("Location:home.php");
+}
+  ?>

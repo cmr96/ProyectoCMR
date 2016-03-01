@@ -25,6 +25,7 @@ CREATE TABLE ENTRADA_PEDIDO (
 <?PHP
   session_start();
 
+
  include_once("./db_configuration.php");
 
   $connection = new mysqli($db_host, $db_user, $db_password, $db_name);
@@ -54,9 +55,6 @@ foreach($_SESSION['carrito'] as $id => $cantidad){
 		$connection->query($insert2);
 	}
 }
-
 $_SESSION['carrito'] = [];
-
 header("refresh:0; url=pedido.php");
-
 ?>
